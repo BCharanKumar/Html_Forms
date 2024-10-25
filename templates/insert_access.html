@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert_AccessRecord</title>
+    <style>
+        h1
+        {
+            text-decoration: underline fuchsia;
+            background-color: aqua;
+            color: blue;
+        }
+        fieldset
+        {
+            background-color: fuchsia;
+            border: 5px dotted blue;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <center>
+            <h1>Insert_AccessRecord</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <h2>
+                <label for="na">Name-:</label>
+                <select name="na" id="na">
+                    <option value="select">select</option>
+                    {% for wo in LWO %}
+                    <option value="{{wo.id}}">{{wo.name}}</option>
+
+                    {% endfor %}
+
+                </select>
+                <BR><BR>
+                <label for="au">Author-:</label>
+                <input type="text" name="au" id="au">
+                <br><br>
+                <label for="da">Date-:</label>
+                <input type="date" name="da" id="da">
+                <br><br>
+                <input type="submit" value="insert_access">
+            </h2>
+
+            </form>
+        </center>
+    </fieldset>
+</body>
+</html>
